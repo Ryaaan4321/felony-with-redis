@@ -3,9 +3,12 @@
   "description": "Build your own Redis challenge, from CodeCrafters",
   "type": "module",
   "scripts": {
-    "dev": "bun run app/main.ts"
+    "dev": "ts-node app/main.ts"
   },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@types/node": "^24.4.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   }
 }
