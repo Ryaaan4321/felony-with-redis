@@ -1,12 +1,13 @@
 import * as net from "net";
-console.log("Logs from your program will appear here!");
+const client = net.createConnection({ port: 6379, host: "127.0.0.1" }, () => {
+    console.log("Connected to Redis");
+    client.write("PING\r\n");
+    // client.write("*2\r\n$3\r\nGET\r\n$3\r\nkey\r\n");
+    // client.write("*2\r\n$3\r\nGET\r\n$3\r\nf1\r\n");
+    client.write("*3\r\n$3\r\nSET\r\n$2\r\nf2\r\n$5\r\n12344\r\n");
 
-
-const server: net.Server = net.createServer((connection: net.Socket) => {
-    connection.on("data",(data)=>{
-        console.log("recived the data :",JSON.stringify(data.toString()));
-        connection.write("+PONG\r\n");
-    })
 });
 
-server.listen(6379, "127.0.0.1");
+client.on("data", (data) => {
+    console.log("and she said :",data.toString());
+});
