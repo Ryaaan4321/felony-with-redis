@@ -3,7 +3,8 @@
   "description": "Build your own Redis challenge, from CodeCrafters",
   "type": "module",
   "scripts": {
-    "dev": "ts-node app/main.ts"
+    "dev": "node dist/main.js",
+    "client": "node dist/client.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
